@@ -1,0 +1,31 @@
+
+### Fetch All Tasks
+GET http://www.localhost:3000/tasks 
+
+
+### Create Task 
+POST http://www.localhost:3000/tasks
+content-type: application/json
+
+{
+    "title": "Fonni.",
+    "description":"In adipisicing laboris sit reprehenderit labore ut."
+ 
+ 
+}
+
+### Get Task by id
+GET http://www.localhost:3000/tasks/id
+
+### Update Status 
+PATCH  http://www.localhost:3000/tasks/3e6fc8a0-0660-4fc3-b383-d474330b8c97
+Content-Type: application/json
+
+{
+    "status":"DONE"
+}
+
+### Search and Filter 
+GET http://www.localhost:3000/tasks?status=DONE
+
+
