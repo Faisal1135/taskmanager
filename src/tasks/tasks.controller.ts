@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Query,
@@ -13,7 +14,8 @@ import {
 import { TaskFIlterDto } from './dto/search_and_filter_task.dto';
 
 import { TaskDto } from './dto/tasks.dto';
-import { Task, TaskStatus } from './tasks.model';
+import { TaskEntity } from './task.entity';
+import { TaskStatus } from './tasks.model';
 import { TasksService } from './tasks.service';
 
 @Controller('tasks')
@@ -21,35 +23,40 @@ export class TasksController {
   constructor(private taskService: TasksService) {}
 
   @Get()
-  getAllTak(@Query() filterTask: TaskFIlterDto): Task[] {
-    if (Object.keys(filterTask).length > 0) {
-      return this.taskService.getandFilterTask(filterTask);
-    } else {
-      return this.taskService.getandFilterTask(filterTask);
-    }
+  getTask(@Query() taskFilter: TaskFIlterDto): Promise<TaskEntity[]> {
+    return this.taskService.getTask(taskFilter);
   }
+
+  // @Get()
+  // getAllTak(@Query() filterTask: TaskFIlterDto): Task[] {
+  //   if (Object.keys(filterTask).length > 0) {
+  //     return this.taskService.getandFilterTask(filterTask);
+  //   } else {
+  //     return this.taskService.getandFilterTask(filterTask);
+  //   }
+  // }
 
   @Post()
   @UsePipes(ValidationPipe)
-  createTask(@Body() taskDto: TaskDto): Task {
+  createTask(@Body() taskDto: TaskDto): Promise<TaskEntity> {
     return this.taskService.createTask(taskDto);
   }
 
   @Get(':id')
-  getByID(@Param('id') id: string): Task {
-    return this.taskService.findbyId(id);
+  getByID(@Param('id', ParseIntPipe) id: number): Promise<TaskEntity> {
+    return this.taskService.getTaskById(id);
   }
 
   @Delete(':id')
-  deleteTask(@Param('id') id: string): void {
-    this.taskService.deleteTask(id);
+  deleteTask(@Param('id', ParseIntPipe) id: number): Promise<void> {
+    return this.taskService.deleteTask(id);
   }
 
   @Patch(':id')
   updateTask(
-    @Param('id') id: string,
+    @Param('id', ParseIntPipe) id: number,
     @Body('status') status: TaskStatus,
-  ): Task {
+  ): Promise<TaskEntity> {
     return this.taskService.updateTaskStatus(status, id);
   }
 }
