@@ -27,15 +27,6 @@ export class TasksController {
     return this.taskService.getTask(taskFilter);
   }
 
-  // @Get()
-  // getAllTak(@Query() filterTask: TaskFIlterDto): Task[] {
-  //   if (Object.keys(filterTask).length > 0) {
-  //     return this.taskService.getandFilterTask(filterTask);
-  //   } else {
-  //     return this.taskService.getandFilterTask(filterTask);
-  //   }
-  // }
-
   @Post()
   @UsePipes(ValidationPipe)
   createTask(@Body() taskDto: TaskDto): Promise<TaskEntity> {
