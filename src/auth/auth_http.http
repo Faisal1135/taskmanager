@@ -1,22 +1,24 @@
+
+### Register
 POST http://www.localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "username":"test2",
-    "password":"testpass"
+    "username":"galib",
+    "password":"test1234"
 }
 
-###
+### LOGIN 
 
 POST http://www.localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-    "username":"test2",
-    "password":"testpass"
+    "username":"galib",
+    "password":"test1234"
 }
 ###
 
 POST http://www.localhost:3000/auth/test
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiaWF0IjoxNTk5OTg1OTMyLCJleHAiOjE1OTk5ODk1MzJ9.JvZUa4huSVVEqaH3YH6AJACZfNq_Rd4qkU46RSfhCbM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhbGliIiwiaWF0IjoxNjAwMDE3MDI1LCJleHAiOjE2MDAwMjA2MjV9.KLgt81iNMhWVMJ73QSv2xlExClatZPeflGulHczGFfU
