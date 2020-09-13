@@ -5,3 +5,18 @@ Content-Type: application/json
     "username":"test2",
     "password":"testpass"
 }
+
+###
+
+POST http://www.localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "username":"test2",
+    "password":"testpass"
+}
+###
+
+POST http://www.localhost:3000/auth/test
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QyIiwiaWF0IjoxNTk5OTc4MTk5LCJleHAiOjE1OTk5ODE3OTl9.Yir7hSjme6YZIbSki3Li5KUKX_ipN0erOCiz6BMYI-k
