@@ -11,6 +11,7 @@ import { getCustomRepository } from 'typeorm';
 import { AuthService } from './auth.service';
 import { UserDto } from './dto/auth_user.dto';
 import { GetUser } from './get-user.decorator';
+
 import { User } from './user.entity';
 
 @Controller('auth')
@@ -31,5 +32,6 @@ export class AuthController {
   @UseGuards(AuthGuard())
   test(@GetUser() user: User) {
     console.log(user);
+    return user;
   }
 }

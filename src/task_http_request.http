@@ -8,7 +8,7 @@ POST http://www.localhost:3000/tasks
 content-type: application/json
 
 {
-    "title": "JqUery",
+    "title": "PHP",
     "description":"Occaecat consequat id elit voluptate id est est et nulla non aute mollit." 
 }
 
