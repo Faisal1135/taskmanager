@@ -7,7 +7,7 @@ import { TaskRepository } from './task.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TaskEntity } from './task.entity';
 import { User } from 'src/auth/user.entity';
-import { use } from 'passport';
+import { Response } from 'express';
 
 @Injectable()
 export class TasksService {
@@ -45,4 +45,6 @@ export class TasksService {
     await task.save();
     return task;
   }
+
+  getandSendFile(response: Response, filepath: string) {}
 }
